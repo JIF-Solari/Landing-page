@@ -1,6 +1,150 @@
-/* ----- Barra de Navegación ----- */
+/* ===== Reset General ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: sans-serif;
+  background-color: #ffffff;
+}
 
+/* ===== Header/NavBar ===== */
+.navbar {
+  background-color: #0a0a23;
+  padding: 15px 30px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo + texto */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 55px;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background-color: transparent;
+  border: 2px solid rgb(29, 30, 63);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.menu-toggle:hover {
+  color: #a8a8c7;
+}
+
+/* Menú principal */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Enlaces */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Botones de sesión */
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.auth-buttons .btn {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.auth-buttons .btn.login {
+  background-color: transparent;
+}
+
+.auth-buttons .btn.register {
+  background-color: white;
+  color: #0a0a23;
+}
+
+.auth-buttons .btn:hover {
+  background-color: white;
+  color: #0a0a23;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #0a0a23;
+    margin-top: 10px;
+    gap: 0;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+    .nav-links,
+    .auth-buttons {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+    padding: 10px 0;
+    width: 100%;
+    }
+}
 /* ----- Sección de Introducción ----- */
 
 
@@ -26,4 +170,3 @@
 
 
 /* ----- Media Queries ----- */
-
