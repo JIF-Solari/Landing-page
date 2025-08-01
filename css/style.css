@@ -14,6 +14,7 @@ body {
 .navbar {
   background-color: #0a0a23;
   padding: 15px 30px;
+  font-family: "Urbanist", sans-serif;
 }
 
 .container {
@@ -166,6 +167,73 @@ body {
     width: 100%;
     }
 }
+
+/* ===== Gráfico del dólar ===== */
+.grafico-dolar {
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.main-chart-block {
+    max-width: 800px;
+    width: 100%;
+    text-align: center; 
+}
+
+.grafico-dolar h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #0a0a23;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.chart-filters {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.chart-filters .filter-btn {
+    background-color: #0a0a23;
+    color: white;
+    border: 2px solid #0a0a23;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.chart-filters .filter-btn:hover {
+    background-color: #a8a8c7;
+    border-color: #a8a8c7;
+    color: #0a0a23;
+}
+
+.chart-filters .filter-btn.active {
+    background-color: white;
+    color: #0a0a23;
+    border-color: #0a0a23;
+    font-weight: 700;
+}
+
+.chart-filters .filter-btn.active:hover {
+    background-color: #a8a8c7;
+    color: #0a0a23;
+}
+
+.chart-wrapper canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 400px;
+}
+
 /* ----- Sección de Introducción ----- */
 
 
