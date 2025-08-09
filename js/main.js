@@ -169,4 +169,105 @@ document.addEventListener("DOMContentLoaded", function () {
             getDollarHistory(days);
         });
     });
+
+    // ===== Lógica para la Calculadora de Cambio =====
+    const rateBuyElement = document.getElementById('rate-buy');
+    const rateSellElement = document.getElementById('rate-sell');
+    const inputSend = document.getElementById('input-send');
+    const inputReceive = document.getElementById('input-receive');
+    const currencySend = document.getElementById('currency-send');
+    const currencyReceive = document.getElementById('currency-receive');
+    const swapButton = document.getElementById('swap-button');
+    const groupSendLabel = document.querySelector('#group-send label');
+    const groupReceiveLabel = document.querySelector('#group-receive label');
+
+    const buyRate = 3.5090;
+    const sellRate = 3.5390;
+
+    let isSolesToDollars = true;
+
+    function formatNumber(num) {
+        return parseFloat(num).toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 4
+        });
+    }
+
+    function calculateExchange() {
+        const amount = parseFloat(inputSend.value);
+        if (isNaN(amount) || amount < 0) {
+            inputReceive.value = '0.00';
+            return;
+        }
+
+        let result;
+        if (isSolesToDollars) {
+            result = amount / sellRate;
+        } else {
+            result = amount * buyRate;
+        }
+        inputReceive.value = result.toFixed(4);
+    }
+
+    function swapCurrencies() {
+        isSolesToDollars = !isSolesToDollars;
+
+        swapButton.classList.toggle('swapped');
+
+        const sendValue = inputSend.value;
+        const receiveValue = inputReceive.value;
+
+        if (isSolesToDollars) {
+            currencySend.textContent = 'SOLES';
+            currencyReceive.textContent = 'DÓLARES';
+            groupSendLabel.textContent = 'Envías';
+            groupReceiveLabel.textContent = 'Recibes';
+        } else {
+            currencySend.textContent = 'DÓLARES';
+            currencyReceive.textContent = 'SOLES';
+            groupSendLabel.textContent = 'Envías';
+            groupReceiveLabel.textContent = 'Recibes';
+        }
+
+        inputSend.value = receiveValue;
+        calculateExchange();
+    }
+
+    function validateInput(event) {
+        const input = event.target;
+        const originalValue = input.value;
+        const originalCursorPos = input.selectionStart;
+
+        let cleanedValue = originalValue.replace(/[^0-9.]/g, '');
+        const parts = cleanedValue.split('.');
+        if (parts.length > 2) {
+            cleanedValue = parts[0] + '.' + parts.slice(1).join('');
+        }
+
+        const finalParts = cleanedValue.split('.');
+        let finalValue = finalParts[0].slice(0, 6);
+
+        if (finalParts.length > 1) {
+            finalValue += '.' + finalParts[1].slice(0, 2);
+        }
+
+        if (finalValue !== originalValue) {
+            input.value = finalValue;
+
+            const diff = originalValue.length - finalValue.length;
+            const newCursorPos = originalCursorPos - diff;
+
+            input.setSelectionRange(newCursorPos, newCursorPos);
+        }
+        calculateExchange();
+    }
+
+    swapButton.addEventListener('click', swapCurrencies);
+    inputSend.addEventListener('input', validateInput);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        rateBuyElement.textContent = `S/ ${buyRate.toFixed(4)}`;
+        rateSellElement.textContent = `S/ ${sellRate.toFixed(4)}`;
+        calculateExchange();
+    });
 });
