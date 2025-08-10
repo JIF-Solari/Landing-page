@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>J&S SOLARI</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>J&S SOLARI</title>
 
     <!-- Fuente Manufacturing Consent -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="img\J&S SOLARI.png" type="image/png" />
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="icon" href="img\J&S SOLARI.png" type="image/png"/>
 </head>
 <body>
 
-  <header class="navbar">
+<header class="navbar">
     <div class="container">
-    <div class="logo">
-      <img src="img\J&S SOLARI.png" alt="JIF-Solari">
-        <span class="logo-text">J&F SOLARI</span>
+        <div class="logo">
+            <img src="img\J&S SOLARI.png" alt="JIF-Solari">
+            <span class="logo-text">J&F SOLARI</span>
+        </div>
+
+        <button class="menu-toggle" id="menu-toggle">☰</button>
+
+        <div class="navbar-menu" id="navbar-menu">
+            <nav class="nav-links">
+                <a href="#quienes-somos">¿QUIÉNES SOMOS?</a>
+                <a href="#ayuda">AYUDA</a>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="#login" class="btn login">INICIAR SESIÓN</a>
+                <a href="#register" class="btn register">REGISTRARSE</a>
+            </div>
+        </div>
     </div>
+</header>
 
-    <button class="menu-toggle" id="menu-toggle">☰</button>
-
-    <div class="navbar-menu" id="navbar-menu">
-      <nav class="nav-links">
-        <a href="#quienes-somos">¿QUIÉNES SOMOS?</a>
-        <a href="#ayuda">AYUDA</a>
-      </nav>
-
-      <div class="auth-buttons">
-        <a href="#login" class="btn login">INICIAR SESIÓN</a>
-        <a href="#register" class="btn register">REGISTRARSE</a>
-      </div>
-    </div>
-    </div>
-  </header>
-
-  <section class="grafico-dolar">
+<section class="grafico-dolar">
     <div class="main-chart-block">
         <h2>Precio del dólar en Perú</h2>
         <div class="chart-filters">
@@ -50,9 +51,49 @@
             <canvas id="dollarChart"></canvas>
         </div>
     </div>
-  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="js/main.js"></script>
+    <div class="exchange-calculator">
+        <div class="calculator-rates">
+            <div class="rate-box">
+                <span class="rate-title">Tú vendes dólares</span>
+                <span class="rate-value" id="rate-buy">S/ 3.5090</span>
+            </div>
+            <div class="rate-box">
+                <span class="rate-title">Tú compras dólares</span>
+                <span class="rate-value" id="rate-sell">S/ 3.5390</span>
+            </div>
+        </div>
+        <div class="calculator-body">
+            <div class="input-group" id="group-send">
+                <label for="input-send">Envías</label>
+                <div class="input-wrapper">
+                    <input type="number" id="input-send" value="1000" placeholder="0.00">
+                    <span class="currency-tag" id="currency-send">SOLES</span>
+                </div>
+            </div>
+
+            <div class="swap-button-container">
+                <button id="swap-button" title="Intercambiar monedas">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                </button>
+            </div>
+
+            <div class="input-group" id="group-receive">
+                <label for="input-receive">Recibes</label>
+                <div class="input-wrapper">
+                    <input type="number" id="input-receive" placeholder="0.00" readonly>
+                    <span class="currency-tag" id="currency-receive">DÓLARES</span>
+                </div>
+            </div>
+        </div>
+        <div class="calculator-footer">
+            <button class="btn-cta">EMPEZAR OPERACIÓN</button>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
