@@ -7,7 +7,7 @@
 
 body {
     font-family:sans-serif;
-  background-color: #ffffff;
+  background-color: #0a0a23;
 }
 
 /* ===== Header/NavBar ===== */
@@ -177,7 +177,7 @@ body {
 .grafico-dolar h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #0a0a23;
+  color: #ffffff;
   font-family: 'Urbanist', sans-serif;
 }
 
@@ -192,7 +192,7 @@ body {
 .chart-filters .filter-btn {
     background-color: #0a0a23;
     color: white;
-    border: 2px solid #0a0a23;
+    border: 2px solid #fcfcfc;
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -208,7 +208,7 @@ body {
 }
 
 .chart-filters .filter-btn.active {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: #0a0a23;
     border-color: #0a0a23;
     font-weight: 700;
@@ -309,7 +309,8 @@ body {
     font-weight: 700;
     color: #0a0a23;
     padding: 0;
-    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield;
+    -moz-appearance: textfield;
 }
 .input-group input::-webkit-outer-spin-button,
 .input-group input::-webkit-inner-spin-button {
@@ -391,4 +392,232 @@ body {
 
 .btn-cta:hover {
     background-color: #5c6ac4;
+}
+
+.carrusel-bancos {
+    padding: 30px;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carrusel-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0a0a23;
+    font-family: 'Urbanist', sans-serif;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.carrusel-container {
+    overflow: hidden;
+    max-width: 100%;
+    padding: 20px 0;
+    position: relative;
+}
+
+.carrusel-track {
+    display: flex;
+    align-items: center;
+    animation: scroll 10s linear infinite;
+}
+
+.carrusel-slide {
+    flex: 0 0 auto;
+    padding: 0 35px;
+}
+
+.carrusel-slide img {
+    height: 150px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    background: white;
+    padding: 12px;
+    transition: transform 0.3s ease;
+    animation: spin 6s linear infinite;
+}
+
+.carrusel-slide img:hover {
+    transform: scale(1.1);
+}
+
+/* Animación continua sin cortes */
+/* @keyframes scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+} */
+
+@media (max-width: 768px) {
+    .carrusel-slide img {
+        height: 100px;
+        padding: 10px;
+    }
+}
+
+/* ===== Sección Pasos Cambio ===== */
+.pasos-cambio {
+    background-color: #0a0a23;
+    padding: 60px 20px;
+    color: white;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.container-pasos {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.titulo-pasos {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.pasos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.paso {
+    background-color: #1a1a3a;
+    border-radius: 16px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.paso:hover {
+    transform: translateY(-5px);
+}
+
+.paso-img {
+    max-width: 250px;
+    margin: 0 auto 20px;
+    display: block;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.paso-titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.paso-desc {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #a8a8c7;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .titulo-pasos {
+        font-size: 1.6rem;
+    }
+    .paso-img {
+        max-width: 90px;
+    }
+}
+
+/* ===== Sección ¿Por qué elegir? ===== */
+.porque-elegir {
+    background-color: transparent; /* Mantiene el fondo original de la página */
+    padding: 40px 20px;
+}
+
+.porque-wrapper {
+    background-color: #ffffff; /* Cuadro blanco que envuelve todo */
+    border-radius: 12px;       /* Esquinas redondeadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más elegante */
+    padding: 40px;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.titulo-porque {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0a0a23;
+    margin-bottom: 30px;
+}
+
+.titulo-porque span {
+    color: #5c6ac4;
+}
+
+.porque-items {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.porque-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.porque-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain; /* Mantiene proporción y evita bordes raros */
+}
+
+.porque-item h3 {
+    font-size: 1.2rem;
+    color: #0a0a23;
+    margin-bottom: 5px;
+}
+
+.porque-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.porque-imagen img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Redondear imagen para integrarla al diseño */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .porque-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .porque-items {
+        align-items: center;
+    }
+
+    .porque-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .porque-imagen img {
+        max-width: 300px;
+    }
+        /* Ajuste del título para móviles */
+    .titulo-porque {
+        font-size: 1.4rem; /* reduce un poco */
+        white-space: nowrap; /* evita salto de línea */
+    }
 }
