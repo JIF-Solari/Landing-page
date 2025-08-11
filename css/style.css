@@ -392,3 +392,136 @@ body {
 .btn-cta:hover {
     background-color: #5c6ac4;
 }
+
+.carrusel-bancos {
+    padding: 0 0 30px;
+    background: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carrusel-titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0a0a23;
+    font-family: 'Urbanist', sans-serif;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.carrusel-container {
+    overflow: hidden;
+    max-width: 100%;
+    padding: 20px 0;
+    position: relative;
+}
+
+.carrusel-track {
+    display: flex;
+    align-items: center;
+    animation: scroll 10s linear infinite;
+}
+
+.carrusel-slide {
+    flex: 0 0 auto;
+    padding: 0 35px;
+}
+
+.carrusel-slide img {
+    height: 150px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    background: white;
+    padding: 12px;
+    transition: transform 0.3s ease;
+    animation: spin 6s linear infinite;
+}
+
+.carrusel-slide img:hover {
+    transform: scale(1.1);
+}
+
+/* Animación continua sin cortes */
+/* @keyframes scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+} */
+
+@media (max-width: 768px) {
+    .carrusel-slide img {
+        height: 100px;
+        padding: 10px;
+    }
+}
+
+/* ===== Sección Pasos Cambio ===== */
+.pasos-cambio {
+    background-color: #0a0a23;
+    padding: 60px 20px;
+    color: white;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.container-pasos {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.titulo-pasos {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.pasos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.paso {
+    background-color: #1a1a3a;
+    border-radius: 16px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.paso:hover {
+    transform: translateY(-5px);
+}
+
+.paso-img {
+    max-width: 250px;
+    margin: 0 auto 20px;
+    display: block;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.paso-titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.paso-desc {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #a8a8c7;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .titulo-pasos {
+        font-size: 1.6rem;
+    }
+    .paso-img {
+        max-width: 90px;
+    }
+}
